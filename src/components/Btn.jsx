@@ -1,9 +1,12 @@
 import React from 'react'
 import { Button } from 'react-bootstrap'
 
-const Btn = () => {
+const Btn = ({ getUser, handleClick }) => {
+    handleClick = () => {
+        getUser()
+    }
     return (
-        <Button className="btn btn-success">RANDOM</Button>
+        <Button onClick={handleClick} className="btn btn-success">RANDOM</Button>
 
     )
 }

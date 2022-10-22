@@ -11,9 +11,27 @@ function App() {
     try {
       const { data: { results } } = await axios(url)
       console.log(results[0])
-      setUserInfo(results[0])
-      console.log(userInfo
-      );
+      const {
+        picture: { large },
+        name: { title, first, last },
+        email,
+        cell,
+        location: { state, country },
+        registered: { date, age },
+      } = results[0];
+      setUserInfo({
+        large,
+        title,
+        first,
+        last,
+        email,
+        cell,
+        state,
+        country,
+        date,
+        age,
+      });
+
 
     } catch (error) {
       console.log(error)
@@ -31,7 +49,7 @@ function App() {
     <div className="App d-flex m-auto w-100 h-100 bg-primary">
       <div>
         <Person userInfo={userInfo} />
-        <Btn />
+        <Btn getUser={getUser} />
       </div>
     </div>
   );

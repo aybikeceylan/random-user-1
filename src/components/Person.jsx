@@ -5,7 +5,8 @@ import Location from "../assets/Location.svg"
 import Phone from "../assets/Phone.svg"
 
 const Person = ({ userInfo }) => {
-    const { picture: { large }, name: { title, first, last }, email, cell, dob: { age }, state, country } = userInfo
+    const { title, first, last, email, cell, age, state, country, large, date } = userInfo
+
     return (
 
 
@@ -72,7 +73,7 @@ const Person = ({ userInfo }) => {
                 </tr>
                 <tr>
                     <td style={{ border: "none" }} colSpan={2}>
-                        Register Date:{userInfo?.date.slice(0, 10)}
+                        Register Date:{date.slice(0, 10)}
                     </td>
                 </tr>
             </tbody>
